@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/NutriLogo.ico') }}">
+    <script src="{{ url_for('static', filename='main.js') }}" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>NutriBot</title>
+</head>
+<body>
+    <header>
+        <div>
+            <h1>NutriBot</h1>
+            <h4>Gere receitas com inteligência artificial!</h4>
+        </div>
+    </header>
+    <main>
+        <div class="desc">
+            <div>
+                <h2>Boas vindas ao NutriBot!</h2>
+                <p>Aqui você pode descobrir novas receitas utilizando inteligência artificial para te auxiliar.</p>
+                <p>Esta é uma ferramenta que serve para ajudar na criação de receitas rápidas, porém <b>não substitui</b> nutricionistas ou profissionais da nutrição!</p>
+            </div>
+            <div>
+                <h2>Importante</h2>
+                <p>Sempre verifique os ingredientes sugeridos pelo NutriBot para não consumir alimentos dos quais você tenha alergia ou restrição alimentar!</p>
+                <p>Nosso intuito é colaborar com a sua dieta, então caso uma de nossa receitas contenha alimentos que você não pode consumir, basta solicitar uma nova receita!</p>
+            </div>
+            <div>
+                <h2>Como utilizar:</h2>
+                <ul>
+                    <li>
+                        <p>Inicie uma conversação com o NutriBot no chat ao lado para seu atendimento;</p>
+                    </li>
+                    <li>
+                        <p>Quando o NutriBot solicitar, decida entre enviar áudio, texto ou imagem para gerar uma receita com os ingredientes que você possui;</p>
+                    </li>
+                    <li>
+                        <p>O NutriBot irá verificar os seus ingredientes e te gerar uma receita para você!</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="chat-header">
+                <img src="{{ url_for('static', filename='assets/NutriLogo.png') }}" alt="NutriBot Logo">
+                <h3>NutriBot</h3>
+            </div>
+
+            <div id="chat"></div>
+
+            <div id="typing-indicator" style="display: none;">
+                <div class="dot-flashing"><h5>Digitando</h5></div>
+            </div>
+            
+            <div class="bubble bot loading" id="loading" style="display:none;">
+                <p>Processando</p>
+                <div class="loader"></div>
+            </div>
+            <div class="controls">
+                <input type="text" id="user-input" placeholder="Digite sua mensagem..." style="display: block;">
+                <button id="send-button" onclick="sendMessage()">Enviar</button>
+                <button id="recordButton" aria-label="Gravar áudio" style="display: block;" onclick="toggleRecording()">
+                    <i class="fas fa-microphone"></i>
+                </button>
+                <input type="file" id="file-input" class="closed" accept="image/*,audio/*">
+                <button id="uploadButton"  onclick="document.getElementById('file-input').click();">
+                    <i class="fas fa-paperclip"></i>
+                </button>
+                <div id="recordingIndicator" style="display: none;">
+                    <span id="recordingTime">0:00</span> 
+                    <button id="stopButton" onclick="stopRecording()">Parar</button>
+                </div>
+            </div>
+
+            <!-- O reprodutor de áudio inicialmente escondido -->
+            <audio id="audioPlayback" controls class="closed"></audio>
+            <div id="loading" style="display:none;">Processando a transcrição...</div>
+        </div>
+    </main>
+    <footer>
+        <p>NutriBot &copy; - 2024</p>
+    </footer>
+</body>
+</html>

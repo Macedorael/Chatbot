@@ -1,0 +1,215 @@
+:root {
+    --purple: #6c128d;
+    --dark: #2b0f34;
+    --light: #c3abd1;
+    --white: #dee2e6;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header, footer {
+    background-color: var(--dark);
+    color: white;
+    text-align: center;
+    padding: 16px;
+}
+
+.login, .register {
+    height: 100vh;
+    width: 50%;
+    margin: 64px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main {
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--light);
+    padding: 24px 40px;
+}
+
+.desc {
+    background-color: var(--dark);
+    background-image: linear-gradient(45deg, var(--dark), var(--light));
+    color: white;
+    height: min-content;
+    width: 50%;
+    border-radius: 8px;
+    box-shadow: 4px 8px 16px 4px var(--dark);
+    padding: 24px;
+
+    & > div {
+        margin: 16px 0;
+
+        & > p {
+            margin-top: 16px;
+        }
+
+        & > ul {
+            padding: 16px;
+
+            & > li {
+                margin: 8px;
+            }
+        }
+    }
+}
+
+.container {
+    background-image: linear-gradient(45deg, var(--light), var(--white));
+    font-size: 18px;
+    height: 80%;
+    width: 45%;
+    border-radius: 8px;
+    box-shadow: 4px 8px 16px 4px var(--dark);
+    padding: 0 0 24px 0;
+    overflow: hidden;
+}
+
+.chat-header {
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-image: linear-gradient(to right, var(--purple), transparent);
+
+    & > img {
+        width: 40px;
+    }
+
+    & > h3 {
+        font-size: 18px;
+    }
+}
+
+#chat {
+    padding: 16px;
+    height: 75%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.bubble {
+    padding: 8px;
+    color: white;
+    width: 60%;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    box-shadow: 2px 2px 4px 4px #00000077;
+}
+
+.you {
+    margin-left: 40%;
+    background-color: green;
+    text-align: right;
+}
+
+.bot {
+    background-color: var(--purple);
+}
+
+.controls {
+    display: flex; 
+    justify-content: flex-start; 
+    align-items: center; 
+    padding: 8px; 
+    background-color: var(--light); 
+    border-radius: 8px; 
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.controls button, .controls input {
+    margin: 0 4px; 
+    padding: 10px 16px; 
+    font-size: 16px; 
+    border-radius: 4px; 
+    border: none; 
+    background-color: var(--purple); 
+    color: white; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+}
+
+.controls button:hover {
+    background-color: darken(var(--purple), 10%); 
+}
+
+#audio-controls {
+    display: flex; 
+    align-items: center; 
+    margin-left: 8px; 
+}
+
+#audioPlayback {
+    width: 200px; 
+    margin: 0 8px; 
+    border-radius: 4px; 
+    background-color: var(--white); 
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+#user-input {
+    flex-grow: 1; 
+    margin-right: 8px; 
+    padding: 10px 16px; 
+    border-radius: 4px; 
+    border: 1px solid #ccc; 
+}
+
+.recording {
+    background-color: #ff6666; 
+    color: white; 
+    border: 1px solid red; 
+}
+
+.recording-indicator {
+    background-color: #ff0000; /* Vermelho para indicar gravação */
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    position: absolute; /* Posicionar no canto inferior */
+    bottom: 10px;
+    right: 10px;
+    display: none; /* Inicialmente oculto */
+    font-weight: bold;
+}
+
+.closed {
+    display: none;
+}
+
+.open {
+    display: block;
+}
+
+.card_buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    & > button {
+        width: 100%;
+        padding: 8px;
+        margin-top: 8px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        background-color: var(--white);
+        cursor: pointer;
+
+        &:hover {
+            background-color: var(--dark);
+            color: var(--white);
+        }
+    }
+}
